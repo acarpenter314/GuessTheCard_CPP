@@ -8,7 +8,14 @@ This project demonstrates clean gameplay logic, simple class design, randomizati
 
 This is a pure-logic version of my C# WinForms card game.  
 The original C# version uses a sprite sheet to render card graphics.  
-For this C++ sample, I intentionally focused on gameplay logic to keep the code portable, readable, and easy to review.
+For this C++ sample, I intentionally focused on gameplay logic to keep the code portable, readable, 
+and easy to review.
+
+Development Note:  
+Although C++ was the first programming language I learned, this C++ version of Guess the Card was 
+created last. After building the Kotlin (Android) and C# versions, I revisited C++ with more experience 
+and modern coding practices. This version represents a refined, cleaner implementation of the same game 
+logic, showing how my approach has evolved across languages and platforms.
 
 ## Features
 
