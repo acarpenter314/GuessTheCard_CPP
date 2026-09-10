@@ -1,64 +1,68 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <cstdlib>
-#include <ctime>
+srand(time(nullptr));
+    Deck deck;
 
-// ------------------------------------------------------------
-// Card Class
-// Represents a single playing card with a suit and value.
-// ------------------------------------------------------------
-class Card {
-public:
-    std::string suit;
-    std::string value;
+    bool playAgain = true;
 
-    Card(const std::string& s, const std::string& v)
-        : suit(s), value(v) {}
-};
+    while (playAgain) {
+        std::cout << "\n=== Guess The Card (C++ Edition) ===\n";
+        std::cout << "Choose difficulty:\n";
+        std::cout << "1. Guess Suit\n";
+        std::cout << "2. Guess Value\n";
+        std::cout << "3. Guess Both\n";
+        std::cout << "Enter choice: ";
 
-// ------------------------------------------------------------
-// Deck Class
-// Builds a simple 40‑card deck (Ace–10 in four suits).
-// Provides a method to draw a random card.
-// ------------------------------------------------------------
-class Deck {
-private:
-    std::vector<Card> cards;
+        int choice;
+        std::cin >> choice;
 
-public:
-    Deck() {
-        std::vector<std::string> suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-        std::vector<std::string> values = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        Card card = deck.getRandomCard();
 
-        // Build the deck by combining suits and values
-        for (const auto& s : suits) {
-            for (const auto& v : values) {
-                cards.emplace_back(s, v);
+        std::string guessSuit, guessValue;
+
+        if (choice == 1) {
+            std::cout << "Guess the suit (Hearts, Diamonds, Clubs, Spades): ";
+            std::cin >> guessSuit;
+
+            if (guessSuit == card.suit) {
+                std::cout << "Correct! The card was " << card.value << " of " << card.suit << ".\n";
+            } else {
+                std::cout << "Wrong! The card was " << card.value << " of " << card.suit << ".\n";
             }
+
+        } else if (choice == 2) {
+            std::cout << "Guess the value (Ace, 2-10, Jack, Queen, King): ";
+            std::cin >> guessValue;
+
+            if (guessValue == card.value) {
+                std::cout << "Correct! The card was " << card.value << " of " << card.suit << ".\n";
+            } else {
+                std::cout << "Wrong! The card was " << card.value << " of " << card.suit << ".\n";
+            }
+
+        } else if (choice == 3) {
+            std::cout << "Guess the suit: ";
+            std::cin >> guessSuit;
+            std::cout << "Guess the value: ";
+            std::cin >> guessValue;
+
+            if (guessSuit == card.suit && guessValue == card.value) {
+                std::cout << "Perfect! You guessed both correctly!\n";
+            } else {
+                std::cout << "Wrong! The card was " << card.value << " of " << card.suit << ".\n";
+            }
+
+        } else {
+            std::cout << "Invalid choice.\n";
+        }
+
+        char again;
+        std::cout << "\nPlay again? (y/n): ";
+        std::cin >> again;
+
+        if (again != 'y' && again != 'Y') {
+            playAgain = false;
         }
     }
 
-    // Draws a random card from the deck
-    Card drawRandomCard() const {
-        int index = std::rand() % cards.size();
-        return cards[index];
-    }
-};
-
-// ------------------------------------------------------------
-// playGame()
-// Handles the main gameplay loop:
-// - Difficulty selection
-// - User guessing
-// - Win/loss output
-// ------------------------------------------------------------
-void playGame() {
-    Deck deck;
-    Card hidden = deck.drawRandomCard();
-
-    std::string guessSuit;
-    std::string guessValue;
-
-    std::cout << "\n=== Guess The Card (C++ Edition) ===\n";
-    std::cout << "Choose difficulty:\n";
+    std::cout << "\nThanks for playing!\n";
+    return 0;
+}
