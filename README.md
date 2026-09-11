@@ -1,4 +1,3 @@
-# GuessTheCard_CPP
 # Guess The Card — C++ Edition
 
 ![C++](https://img.shields.io/badge/C%2B%2B-Console%20App-blue?style=for-the-badge&logo=cplusplus)
