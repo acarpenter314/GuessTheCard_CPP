@@ -1,6 +1,14 @@
 # GuessTheCard_CPP
 # Guess The Card — C++ Edition
 
+![C++](https://img.shields.io/badge/C%2B%2B-Console%20App-blue?style=for-the-badge&logo=cplusplus)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Cross--Platform-lightgrey?style=for-the-badge)
+![Logic](https://img.shields.io/badge/Type-Pure%20Logic-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Complete-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+---
+
 A console-based card guessing game written in C++.  
 This project demonstrates clean gameplay logic, simple class design, randomization, and user input handling.
 
